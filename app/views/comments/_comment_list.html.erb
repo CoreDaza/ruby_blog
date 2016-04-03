@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Commenter</th>
+    <th>body</th>
+    <th>Acciones</th>
+  </tr>
+ 
+  <% @article.comments.each do |objData| %>
+    <tr>
+      <td><%= objData.id %></td>
+      <td><%= objData.commenter %></td>
+      <td><%= objData.body %></td>
+      <td>
+        <%= link_to 'Destroy Comment', [objData.article, objData],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } 
+         %>
+      </td>
+    </tr>
+  <% end %>
+</table>

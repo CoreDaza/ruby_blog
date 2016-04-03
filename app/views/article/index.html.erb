@@ -1,0 +1,32 @@
+<h1>Article#index</h1>
+<p>Find me in app/views/article/index.html.erb</p>
+<h1>Hello, Rails!</h1>
+<%= link_to 'My Blog', article_index_path %>
+<%= link_to 'New article', new_article_path %>
+
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Acciones</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td>
+        <%= link_to 'Ver', article_path(article) %>
+        <%= link_to 'Editar', edit_article_path(article) %>
+        <%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } 
+        %>
+      </td>
+    </tr>
+  <% end %>
+</table>

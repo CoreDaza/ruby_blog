@@ -1,0 +1,37 @@
+<h1>Article#new</h1>
+<p>Find me in app/views/article/new.html.erb</p>
+
+
+
+<%= form_for :article, :url=>article_index_path do |objData| %>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "Error") %> 
+        Este artículo no se puede guardar por:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= objData.label :title %><br>
+    <%= objData.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= objData.label :text %><br>
+    <%= objData.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= objData.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Cancelar', article_index_path %>

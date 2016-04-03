@@ -1,0 +1,14 @@
+<h1>Article#show</h1>
+<p>Find me in app/views/article/show.html.erb</p>
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<%= link_to 'Editar', edit_article_path(@article) %>
+<%= link_to 'Listar', article_index_path %>
